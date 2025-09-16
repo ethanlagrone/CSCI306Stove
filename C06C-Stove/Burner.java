@@ -23,6 +23,7 @@ public class Burner {
 
 	//Hitting the plus button
 	public void plusButton() {
+		//update timer
 		this.timer = TIME_DURATION;
 		switch(mySetting) {
 			case OFF:
@@ -44,6 +45,7 @@ public class Burner {
 
 	//Hitting minus button
 	public void minusButton() {
+		//update timer
 		this.timer = TIME_DURATION;
 		switch(mySetting) {
 			case HIGH:
@@ -63,9 +65,35 @@ public class Burner {
 		}
 	}
 	
-	//Updating temp
+	//Updating temp or timer depending on timer
 	public void updateTemperature() {
-		//update temp
+		if(this.timer == 0) {
+			turnBurnersUp();
+			this.timer = TIME_DURATION;
+		} else {
+			//clock ticks down
+			timer--;
+		}
+	}
+	
+	//Turning burners up whenever the temps are updated
+	public void turnBurnersUp() {
+		switch(myTemperature) {
+			case COOL:
+				this.myTemperature = Temperature.WARM;
+				break;
+			case WARM:
+				this.myTemperature = Temperature.HOT;
+				break;
+			case HOT:
+				this.myTemperature = Temperature.BLAZING;
+				break;
+			case BLAZING:
+				this.myTemperature = Temperature.BLAZING;
+				break;
+			default:
+				System.out.println("Shouldnt print");
+		}
 	}
 	
 	public void display() {
