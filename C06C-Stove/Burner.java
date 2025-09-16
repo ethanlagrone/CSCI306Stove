@@ -3,38 +3,69 @@ public class Burner {
 	public enum Temperature {BLAZING, HOT, WARM, COOL};
 	private Temperature myTemperature;
 	private Setting mySetting;
-	private int Timer;
+	private int timer;
 	public static final int TIME_DURATION = 2;
 	
-	//Constructor for burner
-	
-
+	//enum getter
 	public Temperature getTemp() {
 		return myTemperature;
 	}
 	
-	public Burner(Burner.Temperature myTemperature, Setting mySetting, int timer) {
+	//Constructor for burner
+	public Burner() {
 		super();
-		this.myTemperature = myTemperature.COOL;
-		this.mySetting = mySetting.OFF;
-		Timer = timer;
+		this.myTemperature = Temperature.COOL;
+		this.mySetting = Setting.OFF;
+		this.timer = 0;
 	}
 
 	//All functions we need
 
 	//Hitting the plus button
 	public void plusButton() {
-		System.out.println("you hit the plus button");
+		this.timer = TIME_DURATION;
+		switch(mySetting) {
+			case OFF:
+				mySetting = Setting.LOW;
+				break;
+			case LOW:
+				mySetting = Setting.MEDIUM;
+				break;
+			case MEDIUM:
+				mySetting = Setting.HIGH;
+				break;
+			case HIGH:
+				mySetting = Setting.HIGH;
+				break;
+			default:
+				System.out.println("Shouldnt be called unless theres a problem");
+		}
 	}
 
 	//Hitting minus button
 	public void minusButton() {
-		System.out.println("You hit the minus button");
+		this.timer = TIME_DURATION;
+		switch(mySetting) {
+			case HIGH:
+				mySetting = Setting.MEDIUM;
+				break;
+			case MEDIUM:
+				mySetting = Setting.LOW;
+				break;
+			case LOW:
+				mySetting = Setting.OFF;
+				break;
+			case OFF:
+				mySetting = Setting.OFF;
+				break;
+			default:
+				System.out.println("Shouldnt be called unless theres a problem");
+		}
 	}
 	
 	//Updating temp
 	public void updateTemperature() {
-		System.out.println("You are updating temps");
+		//update temp
 	}
 	
 	public void display() {
