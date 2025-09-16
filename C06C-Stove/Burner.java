@@ -68,7 +68,22 @@ public class Burner {
 	//Updating temp or timer depending on timer
 	public void updateTemperature() {
 		if(this.timer == 0) {
-			turnBurnersUp();
+			switch(mySetting) {
+				case OFF:
+					this.myTemperature = Temperature.COOL;
+					break;
+				case LOW:
+					this.myTemperature = Temperature.WARM;
+					break;
+				case MEDIUM:
+					this.myTemperature = Temperature.HOT;
+					break;
+				case HIGH:
+					this.myTemperature = Temperature.BLAZING;
+					break;
+				default:
+					System.out.println("Shouldnt print");
+			}
 			this.timer = TIME_DURATION;
 		} else {
 			//clock ticks down
@@ -76,27 +91,26 @@ public class Burner {
 		}
 	}
 	
-	//Turning burners up whenever the temps are updated
-	public void turnBurnersUp() {
+	
+	//Print in one line, the current setting, dots, and then a message depending on the temp.
+	public void display() {
+		System.out.print(this.mySetting);
+		System.out.print("......");
 		switch(myTemperature) {
 			case COOL:
-				this.myTemperature = Temperature.WARM;
+				System.out.print("coooool\n");
 				break;
 			case WARM:
-				this.myTemperature = Temperature.HOT;
+				System.out.print("warm\n");
 				break;
 			case HOT:
-				this.myTemperature = Temperature.BLAZING;
+				System.out.print("CAREFUL\n");
 				break;
 			case BLAZING:
-				this.myTemperature = Temperature.BLAZING;
+				System.out.print("VERY HOT! DON'T TOUCH\n");
 				break;
 			default:
 				System.out.println("Shouldnt print");
 		}
-	}
-	
-	public void display() {
-		System.out.println("Priting stove");
 	}
 }
