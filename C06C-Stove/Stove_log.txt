@@ -1,3 +1,6 @@
+I, Sedona Szczepaniak, certify that I participated equitably in the creation of assignment Stove, dated 9/19/2025.
+I, Ethan LaGrone, certify that I participated equitably in the creation of this assignment Stove, dated 9/19/2025.
+
 commit fb038431bab345388eb1406aebeb4be18b2f58fa
 Author: 1123581321345589144233377610987 <123220105+1123581321345589144233377610987@users.noreply.github.com>
 Date:   Fri Sep 19 02:51:36 2025 -0600
