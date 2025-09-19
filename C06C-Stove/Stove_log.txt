@@ -1,0 +1,72 @@
+commit fb038431bab345388eb1406aebeb4be18b2f58fa
+Author: 1123581321345589144233377610987 <123220105+1123581321345589144233377610987@users.noreply.github.com>
+Date:   Fri Sep 19 02:51:36 2025 -0600
+
+    Update Burner.java
+    
+    Replaced updateTemperature() with new version in line with new understanding of desired behavior. Old version still present but commented out.
+    
+    Note that a slight change to the declaration of the Temperature enum was needed for this to work. (must be "public enum Temperature {COOL, WARM, HOT, BLAZING};" with values listed in that exact order)
+
+commit e30092e54972cc183bb2e130a25dc12b2b540a6c
+Author: 1123581321345589144233377610987 <123220105+1123581321345589144233377610987@users.noreply.github.com>
+Date:   Fri Sep 19 01:04:57 2025 -0600
+
+    Update Stove.java
+    
+    Added RED LIGHT - HOT BURNER ALERT warning
+
+commit 148a192112dbd58ac65f09e10657c76494394aa3
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 17:53:05 2025 -0600
+
+    Most of display and updateTemp done, logic isnt exact yet, but most of the way there
+
+commit 7b05eb23bf1c3abd0a9ac2f2548e9d9488e16993
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 17:31:19 2025 -0600
+
+    Wrote updateTemperature and added another function that updates the temp, all compiles well, just need to write display now
+
+commit 123c61932b9beae6105d4cac0f38dc9b450be989
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 17:22:34 2025 -0600
+
+    Fleshed out minus and plus button with switch and case statements per the rubric
+
+commit 12dc4c6780e666170cbadb3f53d308a55e8d2527
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 17:03:10 2025 -0600
+
+    Basic version of Burner.java with constructor and stub functions as well as variables
+
+commit ec6baa29e59b89beeb5f4898ec8e42075e6cd616
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 14:43:11 2025 -0600
+
+    Created v1 of setting enum type
+
+commit fef5845484fc02a522cbb313ff606eb07962a5c9
+Merge: d829a7e c786931
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 14:20:00 2025 -0600
+
+    Merge branch 'main' of https://github.com/ethanlagrone/CSCI306Stove
+
+commit d829a7e97863ee307c24e7a3454716a071850c54
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 14:09:16 2025 -0600
+
+    Testing commit with basic files
+
+commit c786931159eff3ef379de24d359792ff47ec17bd
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 14:06:58 2025 -0600
+
+    Initial commit
+
+commit a88a4e027ca43eb48dba8de0c5e2cb508f452a8d
+Author: ethanlagrone <ethan_lagrone@mines.edu>
+Date:   Tue Sep 16 13:55:27 2025 -0600
+
+    Commit one
