@@ -1,6 +1,7 @@
 
+
 public class Burner {
-	public enum Temperature {BLAZING, HOT, WARM, COOL};
+	public enum Temperature {COOL, WARM, HOT, BLAZING};
 	private Temperature myTemperature;
 	private Setting mySetting;
 	private int timer;
@@ -39,7 +40,7 @@ public class Burner {
 				mySetting = Setting.HIGH;
 				break;
 			default:
-				System.out.println("Shouldnt be called unless theres a problem");
+				System.out.println("Shouldn't be called unless theres a problem");
 		}
 	}
 
@@ -61,10 +62,11 @@ public class Burner {
 				mySetting = Setting.OFF;
 				break;
 			default:
-				System.out.println("Shouldnt be called unless theres a problem");
+				System.out.println("Shouldn't be called unless theres a problem");
 		}
 	}
 	
+/*
 	//Updating temp or timer depending on timer
 	public void updateTemperature() {
 		if(this.timer == 0) {
@@ -82,7 +84,7 @@ public class Burner {
 					this.myTemperature = Temperature.BLAZING;
 					break;
 				default:
-					System.out.println("Shouldnt print");
+					System.out.println("Shouldn't print");
 			}
 			this.timer = TIME_DURATION;
 		} else {
@@ -90,12 +92,45 @@ public class Burner {
 			timer--;
 		}
 	}
+*/
+	public void updateTemperature() {
+		//.ordinal() returns an enum's index in its declaration array
+		// For example, since COOL comes first here, its ordinal is 0
+		// and the ordinal of WARM is 1 etc.
+		
+		//This makes it a heck of a lot easier to compare these enum values
+		
+		int intTemp = myTemperature.ordinal();
+		int intSetting = mySetting.ordinal();
+		
+		if(this.timer!=0) {//Don't do anything if the timer is set to 0
+			timer--; //update timer
+			if(timer==0) { //Is it time to do stuff?
+				if(intTemp!=intSetting) {//If they don't match (ex: COOL and OFF, WARM and LOW etc.)
+					this.timer=TIME_DURATION;//then things need to change
+					//Bring temperature closer to matching setting
+					if(intTemp>intSetting) {
+						intTemp--;
+					}
+					else {
+						intTemp++;
+					}
+					//set actual myTemperature based on adjusted intTemp
+					myTemperature=Temperature.values()[intTemp];
+				}
+			}
+			
+		}
+		
+	}
 	
 	
 	//Print in one line, the current setting, dots, and then a message depending on the temp.
 	public void display() {
 		System.out.print(this.mySetting);
 		System.out.print("......");
+		
+		//Temperature message
 		switch(myTemperature) {
 			case COOL:
 				System.out.print("coooool\n");
@@ -110,7 +145,7 @@ public class Burner {
 				System.out.print("VERY HOT! DON'T TOUCH\n");
 				break;
 			default:
-				System.out.println("Shouldnt print");
+				System.out.println("Shouldn't print");
 		}
 	}
 }
