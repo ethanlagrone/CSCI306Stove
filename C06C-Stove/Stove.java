@@ -33,6 +33,12 @@ public class Stove {
 		for(int i=0; i<burners.size(); i++) {
 			burners.get(i).display();
 		}
+		for(int i=0; i<burners.size(); i++) {
+			if (burners.get(i).getTemp()==Burner.Temperature.BLAZING) {
+				System.out.println("RED LIGHT - HOT BURNER ALERT");
+				break;
+			}
+		}
 	}
 	
 	/**
@@ -94,7 +100,7 @@ public class Stove {
 		Stove stove = new Stove();
 		
 		System.out.println("Beginning stove state ");
-		// trun the burners up
+		// turn the burners up
 		stove.displayStove();
 		stove.turnBurnersUp();
 		stove.timePassing(6);
